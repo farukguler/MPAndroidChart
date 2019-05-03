@@ -3,6 +3,9 @@ package com.github.mikephil.charting.utils;
 
 import android.content.res.Resources;
 import android.graphics.Color;
+import android.widget.LinearLayout;
+
+import com.github.mikephil.charting.model.GradientColor;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -54,6 +57,28 @@ public class ColorTemplate {
     public static final int[] MATERIAL_COLORS = {
             rgb("#2ecc71"), rgb("#f1c40f"), rgb("#e74c3c"), rgb("#3498db")
     };
+
+
+    public static final int[] REFERENCE_COLORS = {
+            rgb("#f56b88"), rgb("#f77c83"), rgb("#f8927c"), rgb("#fbb272"),
+            rgb("#fcc46d"), rgb("#fdd468"), rgb("#ecd46d"), rgb("#ced575"),
+            rgb("#96d584"), rgb("#62d692"), rgb("#25d6a2")
+    };
+
+
+    public static final int[] DEFAULT_COLORS = {
+            rgb("#eceff3"), rgb("#eceff3"), rgb("#eceff3"), rgb("#eceff3"),
+            rgb("#eceff3"), rgb("#eceff3"), rgb("#eceff3"), rgb("#eceff3"),
+            rgb("#eceff3"), rgb("#eceff3"), rgb("#eceff3")
+    };
+
+    public static List<Integer> getDefaultTextColorForLabel(int valueCount){
+        List<Integer> colorList = new ArrayList<>();
+        for (int i = 0; i < valueCount; i++) {
+            colorList.add(rgb("#000000"));
+        }
+        return colorList;
+    }
 
     /**
      * Converts the given hex-color-string to rgb.

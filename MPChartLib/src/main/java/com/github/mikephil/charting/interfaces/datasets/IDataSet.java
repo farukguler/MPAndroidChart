@@ -78,13 +78,11 @@ public interface IDataSet<T extends Entry> {
      * INFORMATION: This method does calculations at runtime. Do
      * not over-use in performance critical situations.
      *
-     * @param xValue the x-value
+     * @param xValue     the x-value
      * @param closestToY If there are multiple y-values for the specified x-value,
-     * @param rounding determine whether to round up/down/closest
-     *                 if there is no Entry matching the provided x-value
+     * @param rounding   determine whether to round up/down/closest
+     *                   if there is no Entry matching the provided x-value
      * @return
-     *
-     *
      */
     T getEntryForXValue(float xValue, float closestToY, DataSet.Rounding rounding);
 
@@ -96,8 +94,7 @@ public interface IDataSet<T extends Entry> {
      * INFORMATION: This method does calculations at runtime. Do
      * not over-use in performance critical situations.
      *
-     *
-     * @param xValue the x-value
+     * @param xValue     the x-value
      * @param closestToY If there are multiple y-values for the specified x-value,
      * @return
      */
@@ -130,10 +127,10 @@ public interface IDataSet<T extends Entry> {
      * INFORMATION: This method does calculations at runtime. Do
      * not over-use in performance critical situations.
      *
-     * @param xValue the x-value
+     * @param xValue     the x-value
      * @param closestToY If there are multiple y-values for the specified x-value,
-     * @param rounding determine whether to round up/down/closest
-     *                 if there is no Entry matching the provided x-value
+     * @param rounding   determine whether to round up/down/closest
+     *                   if there is no Entry matching the provided x-value
      * @return
      */
     int getEntryIndex(float xValue, float closestToY, DataSet.Rounding rounding);
@@ -364,6 +361,29 @@ public interface IDataSet<T extends Entry> {
     void setValueTextColor(int color);
 
     /**
+     * Sets the color the labels of this DataSet should have.
+     *
+     * @param color
+     */
+    void setLabelTextColor(int color, int index);
+
+    List<Integer> getLabelTextColors();
+
+    /**
+     * Sets the color the labels of this DataSet should have.
+     *
+     * @param color
+     */
+    void setLabelTextColor(int color);
+
+    /**
+     * Sets a list of colors to be used as the colors for the drawn labels.
+     *
+     * @param colors
+     */
+    void setLabelTextColors(List<Integer> colors);
+
+    /**
      * Sets a list of colors to be used as the colors for the drawn values.
      *
      * @param colors
@@ -399,6 +419,16 @@ public interface IDataSet<T extends Entry> {
      * @return
      */
     int getValueTextColor(int index);
+
+    /**
+     * Returns the color at the specified index that is used for drawing the values inside the chart.
+     * Uses modulus internally.
+     *
+     * @param index
+     * @return
+     */
+    int getLabelTextColor(int index);
+
 
     /**
      * Returns the typeface that is used for drawing the values inside the chart
@@ -444,9 +474,10 @@ public interface IDataSet<T extends Entry> {
 
     /**
      * set this to true to draw y-values on the chart.
-     *
+     * <p>
      * NOTE (for bar and line charts): if `maxVisibleCount` is reached, no values will be drawn even
      * if this is enabled
+     *
      * @param enabled
      */
     void setDrawValues(boolean enabled);
@@ -460,7 +491,7 @@ public interface IDataSet<T extends Entry> {
 
     /**
      * Set this to true to draw y-icons on the chart.
-     *
+     * <p>
      * NOTE (for bar and line charts): if `maxVisibleCount` is reached, no icons will be drawn even
      * if this is enabled
      *
@@ -477,10 +508,11 @@ public interface IDataSet<T extends Entry> {
 
     /**
      * Offset of icons drawn on the chart.
-     *
+     * <p>
      * For all charts except Pie and Radar it will be ordinary (x offset,y offset).
-     *
+     * <p>
      * For Pie and Radar chart it will be (y offset, distance from center offset); so if you want icon to be rendered under value, you should increase X component of CGPoint, and if you want icon to be rendered closet to center, you should decrease height component of CGPoint.
+     *
      * @param offset
      */
     void setIconsOffset(MPPointF offset);

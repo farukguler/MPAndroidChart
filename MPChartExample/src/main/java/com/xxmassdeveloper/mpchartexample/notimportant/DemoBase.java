@@ -39,6 +39,7 @@ public abstract class DemoBase extends AppCompatActivity implements ActivityComp
 
     protected Typeface tfRegular;
     protected Typeface tfLight;
+    protected Typeface tfBold;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -46,6 +47,7 @@ public abstract class DemoBase extends AppCompatActivity implements ActivityComp
 
         tfRegular = Typeface.createFromAsset(getAssets(), "OpenSans-Regular.ttf");
         tfLight = Typeface.createFromAsset(getAssets(), "OpenSans-Light.ttf");
+        tfBold = Typeface.createFromAsset(getAssets(), "OpenSans-Bold.ttf");
     }
 
     protected float getRandom(float range, float start) {

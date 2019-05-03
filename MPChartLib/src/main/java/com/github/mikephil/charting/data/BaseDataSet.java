@@ -39,6 +39,11 @@ public abstract class BaseDataSet<T extends Entry> implements IDataSet<T> {
     protected List<Integer> mValueColors = null;
 
     /**
+     * List representing all colors that are used for drawing the actual values for this DataSet
+     */
+    protected List<Integer> mLabelColors = null;
+
+    /**
      * label that describes the DataSet or the data the DataSet represents
      */
     private String mLabel = "DataSet";
@@ -99,10 +104,12 @@ public abstract class BaseDataSet<T extends Entry> implements IDataSet<T> {
     public BaseDataSet() {
         mColors = new ArrayList<Integer>();
         mValueColors = new ArrayList<Integer>();
+        mLabelColors = new ArrayList<>();
 
         // default color
         mColors.add(Color.rgb(140, 234, 255));
         mValueColors.add(Color.BLACK);
+        mLabelColors.add(Color.BLACK);
     }
 
     /**
@@ -134,6 +141,10 @@ public abstract class BaseDataSet<T extends Entry> implements IDataSet<T> {
 
     public List<Integer> getValueColors() {
         return mValueColors;
+    }
+
+    public List<Integer> getLabelColors() {
+        return mLabelColors;
     }
 
     @Override
@@ -303,6 +314,22 @@ public abstract class BaseDataSet<T extends Entry> implements IDataSet<T> {
     }
 
     @Override
+    public void setLabelTextColor(int color, int index) {
+        mLabelColors.set(index % mLabelColors.size(), color);
+    }
+
+    @Override
+    public void setLabelTextColor(int color) {
+        mLabelColors.clear();
+        mLabelColors.add(color);
+    }
+
+    @Override
+    public void setLabelTextColors(List<Integer> colors) {
+        mLabelColors = colors;
+    }
+
+    @Override
     public void setHighlightEnabled(boolean enabled) {
         mHighlightEnabled = enabled;
     }
@@ -362,6 +389,16 @@ public abstract class BaseDataSet<T extends Entry> implements IDataSet<T> {
     @Override
     public int getValueTextColor(int index) {
         return mValueColors.get(index % mValueColors.size());
+    }
+
+    @Override
+    public int getLabelTextColor(int index) {
+        return mLabelColors.get(index % mLabelColors.size());
+    }
+
+    @Override
+    public List<Integer> getLabelTextColors() {
+        return mLabelColors;
     }
 
     @Override
@@ -539,8 +576,8 @@ public abstract class BaseDataSet<T extends Entry> implements IDataSet<T> {
         baseDataSet.mHighlightEnabled = mHighlightEnabled;
         baseDataSet.mIconsOffset = mIconsOffset;
         baseDataSet.mValueColors = mValueColors;
+        baseDataSet.mLabelColors = mLabelColors;
         baseDataSet.mValueFormatter = mValueFormatter;
-        baseDataSet.mValueColors = mValueColors;
         baseDataSet.mValueTextSize = mValueTextSize;
         baseDataSet.mVisible = mVisible;
     }

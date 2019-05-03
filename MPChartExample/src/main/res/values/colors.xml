@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="defaultStartColor">#eceff3</color>
+    <color name="defaultEndColor">#d4dae4</color>
+
+    <color name="color_1">#f56b88</color>
+    <color name="color_2">#f77c83</color>
+    <color name="color_3">#f8927c</color>
+    <color name="color_4">#fbb272</color>
+    <color name="color_5">#fcc46d</color>
+    <color name="color_6">#fdd468</color>
+    <color name="color_7">#ecd46d</color>
+    <color name="color_8">#ced575</color>
+    <color name="color_9">#96d584</color>
+    <color name="color_10">#62d692</color>
+    <color name="color_11">#25d6a2</color>
+
+
+</resources>
