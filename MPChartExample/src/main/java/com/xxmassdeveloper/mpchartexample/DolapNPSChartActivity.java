@@ -90,14 +90,16 @@ public class DolapNPSChartActivity extends DemoBase {
                 for (int i = 0; i < colors.size(); i++) {
                     if ((int) h.getX() == i) {
                         if (colors.get(selectedIndex) != ColorTemplate.REFERENCE_COLORS[i]) {
-                            colors.set(selectedIndex, ColorTemplate.REFERENCE_COLORS[i]);
+                            chart.getData().getDataSetByIndex(h.getDataSetIndex()).setColorByIndex(ColorTemplate.REFERENCE_COLORS[i], selectedIndex);
+//                            colors.set(selectedIndex, ColorTemplate.REFERENCE_COLORS[i]);
                             chart.getData().getDataSetByIndex(h.getDataSetIndex()).setLabelTextColor(Color.WHITE, selectedIndex);
                         } else {
                             shouldInvalidate = false;
                         }
                     } else {
                         chart.getData().getDataSetByIndex(h.getDataSetIndex()).setLabelTextColor(Color.BLACK, i);
-                        colors.set(i, ColorTemplate.DEFAULT_COLORS[0]);
+//                        colors.set(i, ColorTemplate.DEFAULT_COLORS[0]);
+                        chart.getData().getDataSetByIndex(h.getDataSetIndex()).setColorByIndex(ColorTemplate.DEFAULT_COLORS[0], i);
                     }
                 }
 

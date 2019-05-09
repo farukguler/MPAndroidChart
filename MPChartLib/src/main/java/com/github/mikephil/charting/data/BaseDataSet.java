@@ -158,6 +158,11 @@ public abstract class BaseDataSet<T extends Entry> implements IDataSet<T> {
     }
 
     @Override
+    public void setColorByIndex(int color, int index) {
+        mColors.set(index % mColors.size(), color);
+    }
+
+    @Override
     public GradientColor getGradientColor() {
         return mGradientColor;
     }

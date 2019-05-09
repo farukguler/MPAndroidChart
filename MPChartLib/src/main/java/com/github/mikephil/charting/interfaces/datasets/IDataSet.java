@@ -314,6 +314,14 @@ public interface IDataSet<T extends Entry> {
     int getColor(int index);
 
     /**
+     * Sets the color at given index and color of this DataSet should have.
+     *
+     * @param color
+     * @param index
+     */
+    void setColorByIndex(int color, int index);
+
+    /**
      * returns true if highlighting of values is enabled, false if not
      *
      * @return
